@@ -1,0 +1,51 @@
+#{$app}- {
+    &title {
+        &__ {
+            &heading {
+                font-size: var(--fs-heading);   
+                line-height: calc(var(--fs-heading) + 0.1rem); 
+                color: var(--color-dark);
+                font-weight: var(--font-medium);
+            }
+
+            &section {
+                font-size: var(--fs-section);   
+                line-height: calc(var(--fs-section) + 0.1rem); 
+                color: var(--color-dark);
+                font-weight: var(--font-medium);
+            }
+
+            &block {
+                font-size: var(--fs-block);   
+                line-height: calc(var(--fs-block) + 0.1rem); 
+                font-weight: var(--font-medium);
+                color: var(--color-dark);
+            }
+        }
+    }
+
+    &subtitle {
+        font-size: var(--fs-block);   
+        line-height: calc(var(--fs-block) + 0.1rem); 
+        font-weight: var(--font-normal);
+        color: rgba(24, 24, 25, 0.42);
+    }
+    
+    &para {
+        font-size: var(--fs-para);   
+        line-height: calc(var(--fs-para) + 0.1rem); 
+        color: var(--color-dark);
+        font-weight: var(--font-medium);
+    }
+
+    &text {
+        &-- {
+            &light {
+                color: var(--color-light);
+            }
+            &gray {
+                color: rgba(24, 24, 25, 0.42);
+            }
+        }
+    }
+}

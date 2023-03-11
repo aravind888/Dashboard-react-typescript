@@ -1,0 +1,31 @@
+#{$app}- {
+    &btn {
+        &__ {
+            &primary {
+                font-size: var(--fs-block);
+                line-height: calc(var(--fs-block) + 1rem);
+                background-color: var(--color-primary);
+                padding: 1rem 3rem;
+                border-radius: var(--border-radius);
+                color: var(--color-light);
+            }
+
+            &plain {
+                font-size: var(--fs-block);
+                line-height: calc(var(--fs-block) + 1rem);
+                color: var(--color-primary);
+            }
+
+            &add {
+                width: 4.5rem;
+                height: 4.5rem;
+                color: var(--color-primary);
+                background: #EAEAFD;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

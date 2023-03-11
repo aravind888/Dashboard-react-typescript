@@ -1,0 +1,26 @@
+@import './footer',"./header";
+
+#{$app}- {
+    &nav {
+        &__ {
+            &wrap {
+                width: 350px;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background: var(--color-navbar);
+            }
+            &logo {
+                color: #ffffff;
+                font-size: 3.6rem;
+                font-weight: 500;
+
+                &- {
+                    &wrap {
+                    }
+                }
+            }
+        }
+    }
+}

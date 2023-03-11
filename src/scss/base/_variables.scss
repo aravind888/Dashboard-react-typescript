@@ -1,0 +1,69 @@
+$app: '.in';
+
+
+:root {
+
+  // -----------------  Font Family  ------------------------//
+
+  --body-font: 'Roboto', sans-serif;
+
+
+  // -----------------  Font Sizes  ------------------------//
+
+  --fs-body: 1.2rem;
+
+  --fs-heading: 2.4rem; // 24px
+  --fs-section: 1.6em; // 16px
+  --fs-block: 1.4em; // 14px
+  --fs-para: 1.2em; //12px
+
+
+  // -----------------  Font weight  ------------------------//
+
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+
+  // -----------------  Colors  ------------------------//
+  --color-body: #f8f8fa;
+  --color-primary:#4A4DE6;
+  --color-secondary:#FFA000;
+
+  --color-navbar:#3C38CE;
+
+  --color-light : #ffffff;
+  --color-black:#000000;
+  --color-border: #E6E7E9;
+
+  --color-success: #4CAF50;
+  --color-danger: #DD425A;
+
+
+  // -----------------  Break points  ------------------------//
+  --sm: "576px";
+  --md: "768px";
+  --lg: "992px";
+  --xl: "1200px";
+  --xxl: "1400px";
+
+  --gutter-space: 1.5rem;
+
+  --border-radius: 8px;
+
+}
+
+html {
+  font-size: 10px;
+}
+body {
+  font-size: var(--fs-para);
+  font-family: var(--body-font);
+  background: var(--color-body);
+}

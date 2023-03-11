@@ -1,0 +1,602 @@
+//////////////// margin and padding ////////////////
+
+$max: 50;
+$offset: 1;
+$unit: 'rem';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+    $i: $i + $offset;
+  }
+}
+@include list-loop('.p-', 'padding');
+@include list-loop('.pl-', 'padding-left');
+@include list-loop('.pr-', 'padding-right');
+@include list-loop('.pt-', 'padding-top');
+@include list-loop('.pb-', 'padding-bottom');
+
+@include list-loop('.ml-', 'margin-left');
+@include list-loop('.mr-', 'margin-right');
+@include list-loop('.mt-', 'margin-top');
+@include list-loop('.mb-', 'margin-bottom');
+
+
+@mixin list-spacing($className, $styleName, $secondStyleName) {
+    $i: 0;
+    @while $i <= $max {
+      #{$className + $i} {
+        #{$styleName}: #{$i + $unit} !important;
+        #{$secondStyleName}: #{$i + $unit} !important;
+      }
+      $i: $i + $offset;
+    }
+  }
+
+@include list-spacing('.px-', 'padding-left', 'padding-right');
+@include list-spacing('.py-', 'padding-top', 'padding-bottom');
+@include list-spacing('.mx-', 'margin-left', 'margin-right');
+@include list-spacing('.my-', 'margin-top', 'margin-bottom');
+
+
+
+
+// Media queries
+
+$breakPoints: ( 
+    sm: 576px, 
+    md: 768px, 
+    lg: 992px, 
+    xl: 1200px, 
+    xxl: 1400px );
+
+// @mixin mediaQuery($className, $property, $values) {
+//     @each $breakPoint in $breakPoints {
+//         @media (min-width: #{$breakPoint}) {
+//             .#{$className}- {
+//                 $property: $values;
+//             }
+//         }
+//     }
+// }
+
+
+
+// Display properties
+
+$displayVal: flex, inline-flex, block, inline, inline-block, grid, none;
+
+
+@mixin display() {
+    @each $val in $displayVal {
+
+        .d-#{$val} {
+            display: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .d-#{$key}-#{$val} {
+                    display: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include display();
+
+
+// FonntWeight properties
+
+$fontWeightVal: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+
+@mixin FontWeight() {
+    @each $val in $fontWeightVal {
+
+        .font-#{$val} {
+            font-weight: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .font-#{$key}-#{$val} {
+                    font-weight: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include FontWeight();
+
+
+
+// Flex - justify-content
+
+$justifyContentVal: center, flex-start, flex-end, space-around, space-between, space-evenly;
+
+
+@mixin justifyContent() {
+    @each $val in $justifyContentVal {
+
+        .justify-content-#{$val} {
+            justify-content: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .justify-content-#{$key}-#{$val} {
+                    justify-content: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include justifyContent();
+
+
+
+
+// Flex - Align-items
+
+$alignItems: center, flex-start, flex-end, start, end, baseline, stretch;
+
+
+@mixin alignItems() {
+    @each $val in $alignItems {
+
+        .align-items-#{$val} {
+            align-items: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .align-items-#{$key}-#{$val} {
+                    align-items: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include alignItems();
+
+
+
+// Flex - Flex-wrap
+
+$flexWrap: wrap, nowrap, wrap-reverse;
+
+
+@mixin flexWrap() {
+    @each $val in $flexWrap {
+
+        .flex-#{$val} {
+            flex-wrap: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .flex-#{$key}-#{$val} {
+                    flex-wrap: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+
+// Flex - Flex-shrink
+
+$flexShrink: 0, auto;
+
+
+@mixin flexShrink() {
+    @each $val in $flexWrap {
+
+        .flex-shrink-#{$val} {
+            flex-wrap: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .flex-shrink-#{$key}-#{$val} {
+                    flex-shrink: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+
+@include flexShrink();
+
+
+
+// Flex - Flex-shrink
+
+$flexDirection: row, column, row-reverse, column-reverse;
+
+
+@mixin flexDirection() {
+    @each $val in $flexWrap {
+
+        .flex-direction-#{$val} {
+            flex-wrap: $val;
+        } 
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .flex-direction-#{$key}-#{$val} {
+                    flex-direction: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+
+@include flexDirection();
+
+
+// position properties
+
+$positionVal: relative, absolute, static, fixed;
+
+
+@mixin position() {
+    @each $val in $positionVal {
+
+        .position-#{$val} {
+            position: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .position-#{$key}-#{$val} {
+                    position: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include position();
+
+
+
+// text transaction properties
+
+$textTransformVal: uppercase, lowercase, capitalize, none;
+
+
+@mixin textTransform() {
+    @each $val in $textTransformVal {
+
+        .text-#{$val} {
+            text-transform: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .text-#{$key}-#{$val} {
+                    text-transform: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include textTransform();
+
+
+// text-align properties
+
+$textVal: center, left, right;
+
+
+@mixin textAlign() {
+    @each $val in $textVal {
+
+        .text-#{$val} {
+            text-align: $val;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .text-#{$key}-#{$val} {
+                    text-align: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include textAlign();
+
+
+// overflow properties
+
+$overflowVals: hidden, visible, unset;
+
+
+@mixin overflow() {
+    @each $val in $overflowVals {
+
+        .overflow-#{$val} {
+            overflow: $val;
+        } 
+        .overflowx-#{$val} {
+            overflow-x: $val;
+        } 
+        
+        .overflowy-#{$val} {
+            overflow-y: $val;
+        } 
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .overflow-#{$key}-#{$val} {
+                    overflow: #{$val};
+                }
+                .overflowx-#{$key}-#{$val} {
+                    overflow-x: #{$val};
+                }
+                .overflowy-#{$key}-#{$val} {
+                    overflow-y: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include overflow();
+
+
+
+// Flex - Flex-shrink
+
+$marginAuto: 0, auto;
+
+
+@mixin marginAuto() {
+    @each $val in $marginAuto {
+
+        .m-#{$val} {
+           margin: $val;
+        }  
+
+        .ml-#{$val} {
+            margin-left: $val;
+         }  
+
+         .mr-#{$val} {
+            margin-right: $val;
+         }
+
+         .mt-#{$val} {
+            margin-top: $val;
+         } 
+         
+         .mb-#{$val} {
+            margin-bottom: $val;
+         } 
+
+         .mx-#{$val} {
+            margin: 0 $val;
+         } 
+
+         .my-#{$val} {
+            margin: $val 0;
+         } 
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .m-#{$key}-#{$val} {
+                    margin: #{$val};
+                }
+
+                .ml-#{$key}-#{$val} {
+                    margin-left: $val;
+                 }  
+        
+                 .mr-#{$key}-#{$val} {
+                    margin-right: $val;
+                 }
+        
+                 .mt-#{$key}-#{$val} {
+                    margin-top: $val;
+                 } 
+                 
+                 .mb-#{$key}-#{$val} {
+                    margin-bottom: $val;
+                 } 
+
+                 .mx-#{$key}-#{$val} {
+                    margin: 0 $val;
+                 } 
+        
+                 .my-#{$key}-#{$val} {
+                    margin: $val 0;
+                 } 
+            }
+        } 
+    }
+}
+
+@include marginAuto();
+
+
+
+// width properties
+
+$widthVal: 25, 50, 75, 100;
+
+
+@mixin width() {
+    @each $val in $widthVal {
+
+        .w-#{$val} {
+            width: $val * 1%;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .w-#{$key}-#{$val} {
+                    width: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+@include width();
+
+
+$containerWidthVal: 85, 87, 90, 92;
+
+@mixin container() {
+    @each $val in $containerWidthVal {
+
+        .container {
+            width: 100%;
+        }  
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .container-#{$key} {
+                    width: #{$val}rem;
+                }
+            }
+        } 
+    }
+}
+
+@include container();
+
+
+$lineHeightVal: 0, auto;
+
+@mixin lineHeight() {
+    @each $val in $lineHeightVal {
+
+        .line-height-#{$val} {
+            line-height: $val;
+        }
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .line-height-#{$key}-#{$val} {
+                    line-height: #{$val};
+                }
+            }
+        } 
+    }
+}
+
+
+// ROW
+
+@mixin row() {
+
+    $gutterSpace: 1.5rem;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: calc(var(--gutter-space) * -1);
+        margin-right: calc(var(--gutter-space) * -1);
+
+        & > * {
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--gutter-space) * 1);
+            padding-left: calc(var(--gutter-space) * 1);
+        }
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                &-#{$key} {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-left: calc(var(--gutter-space) * -1);
+                    margin-right: calc(var(--gutter-space) * -1);
+
+                    & > * {
+                        width: 100%;
+                        max-width: 100%;
+                        padding-right: calc(var(--gutter-space) * 1);
+                        padding-left: calc(var(--gutter-space) * 1);
+                    }
+            
+                }
+            }
+        } 
+    }  
+}
+
+@include row();
+
+
+
+// COL
+
+$colVal: 8.33333333%, 
+         16.66666667%, 
+         25%, 
+         33.33333333%, 
+         41.66666667%, 
+         50%, 
+         58.33333333%, 
+         66.66666667%, 
+         75%, 83.33333333%, 
+         91.66666667%, 
+         100%;
+
+@mixin col() {
+    .col {
+        flex: 1 0 0%;
+    }
+    @each $val in $colVal {
+        $i: index($colVal, $val);
+        .col-#{$i} {
+            flex: 0 0 auto;
+            width: #{$val};
+        }
+
+        @each $key, $breakPoint in $breakPoints {   
+            @media (min-width: #{$breakPoint}) {
+                .col-#{$key}-#{$i} {
+                    flex: 0 0 auto;
+                    width: #{$val};
+                }
+            }
+        } 
+    }  
+}
+
+@include col();
+
+
+//CONTAINER
+
+$containerVal: 100%, 100%, 100%, 100%;
+
+@mixin container() {
+    .container {
+        width: 100%;
+        padding-left: calc(var(--gutter-space) * 1);
+        padding-right: calc(var(--gutter-space) * 1);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1920px;
+    }
+}
+
+@include container();
