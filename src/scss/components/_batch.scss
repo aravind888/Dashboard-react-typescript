@@ -1,0 +1,15 @@
+#{$app}- {
+    &batch {
+        padding: 0.8rem 1.5rem;
+        font-size: var(--fs-para);
+        line-height: calc(var(--fs-para) * 0.6rem);
+        border-radius: 100px;
+        font-weight: var(--font-medium);
+        &-- {
+            &premium {
+                color: #ED6700;
+                background: #FFECB3;
+            }
+        }
+    }
+}

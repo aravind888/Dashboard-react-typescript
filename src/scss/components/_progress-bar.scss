@@ -1,0 +1,38 @@
+#{$app}- {
+    &progress {
+        &__{
+            &bar {
+                height: 100%;
+                width: 30%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background: #CACCF7;
+                
+                &- {
+                    &outline {
+                        background: #4544DA;
+                        height: 3px;
+                        position: relative;
+                    }
+                    &typeB {
+                        height: 6px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        background: #F0F1F2;
+
+                        #{$app}- {
+                            &progress {
+                                &__{
+                                    &bar {
+                                        background: linear-gradient(270deg, #60B0FA 0%, #4A4DE6 100%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

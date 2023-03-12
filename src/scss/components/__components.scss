@@ -1,1 +1,10 @@
-@import "./button", "./card";
+@import "./button", "./card", "./progress-bar", "./profile-icon", "./inputs", "./batch", "./country";
+
+#{$app}- {
+    &divider {
+        height: 1px;
+        margin: 3rem 0;
+        background: #E6E7E9;
+        opacity: 0.2;
+    }
+}

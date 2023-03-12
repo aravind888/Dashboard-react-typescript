@@ -24,6 +24,58 @@ $unit: 'rem';
 @include list-loop('.mt-', 'margin-top');
 @include list-loop('.mb-', 'margin-bottom');
 
+@media (min-width: 768px) {
+    @include list-loop('.p-md-', 'padding');
+    @include list-loop('.pl-md-', 'padding-left');
+    @include list-loop('.pr-md-', 'padding-right');
+    @include list-loop('.pt-md-', 'padding-top');
+    @include list-loop('.pb-md-', 'padding-bottom');
+
+    @include list-loop('.ml-md-', 'margin-left');
+    @include list-loop('.mr-md-', 'margin-right');
+    @include list-loop('.mt-md-', 'margin-top');
+    @include list-loop('.mb-md-', 'margin-bottom');
+}
+
+@media (min-width: 992px) {
+    @include list-loop('.p-lg-', 'padding');
+    @include list-loop('.pl-lg-', 'padding-left');
+    @include list-loop('.pr-lg-', 'padding-right');
+    @include list-loop('.pt-lg-', 'padding-top');
+    @include list-loop('.pb-lg-', 'padding-bottom');
+
+    @include list-loop('.ml-lg-', 'margin-left');
+    @include list-loop('.mr-lg-', 'margin-right');
+    @include list-loop('.mt-lg-', 'margin-top');
+    @include list-loop('.mb-lg-', 'margin-bottom');
+}
+
+@media (min-width: 1200px) {
+    @include list-loop('.p-xl-', 'padding');
+    @include list-loop('.pl-xl-', 'padding-left');
+    @include list-loop('.pr-xl-', 'padding-right');
+    @include list-loop('.pt-xl-', 'padding-top');
+    @include list-loop('.pb-xl-', 'padding-bottom');
+
+    @include list-loop('.ml-xl-', 'margin-left');
+    @include list-loop('.mr-xl-', 'margin-right');
+    @include list-loop('.mt-xl-', 'margin-top');
+    @include list-loop('.mb-xl-', 'margin-bottom');
+}
+
+@media (min-width: 1400px) {
+    @include list-loop('.p-xxl-', 'padding');
+    @include list-loop('.pl-xxl-', 'padding-left');
+    @include list-loop('.pr-xxl-', 'padding-right');
+    @include list-loop('.pt-xxl-', 'padding-top');
+    @include list-loop('.pb-xxl-', 'padding-bottom');
+
+    @include list-loop('.ml-xxl-', 'margin-left');
+    @include list-loop('.mr-xxl-', 'margin-right');
+    @include list-loop('.mt-xxl-', 'margin-top');
+    @include list-loop('.mb-xxl-', 'margin-bottom');
+}
+
 
 @mixin list-spacing($className, $styleName, $secondStyleName) {
     $i: 0;
@@ -46,12 +98,12 @@ $unit: 'rem';
 
 // Media queries
 
-$breakPoints: ( 
-    sm: 576px, 
-    md: 768px, 
+$breakPoints: (  
+    xxl: 1400px,
+    xl: 1200px,
     lg: 992px, 
-    xl: 1200px, 
-    xxl: 1400px );
+    md: 768px,
+    sm: 576px,   );
 
 // @mixin mediaQuery($className, $property, $values) {
 //     @each $breakPoint in $breakPoints {
@@ -190,6 +242,7 @@ $flexWrap: wrap, nowrap, wrap-reverse;
         } 
     }
 }
+@include flexWrap();
 
 
 // Flex - Flex-shrink
@@ -225,10 +278,10 @@ $flexDirection: row, column, row-reverse, column-reverse;
 
 
 @mixin flexDirection() {
-    @each $val in $flexWrap {
+    @each $val in $flexDirection {
 
         .flex-direction-#{$val} {
-            flex-wrap: $val;
+            flex-direction: $val;
         } 
 
         @each $key, $breakPoint in $breakPoints {   
@@ -570,15 +623,56 @@ $colVal: 8.33333333%,
             width: #{$val};
         }
 
-        @each $key, $breakPoint in $breakPoints {   
-            @media (min-width: #{$breakPoint}) {
-                .col-#{$key}-#{$i} {
-                    flex: 0 0 auto;
-                    width: #{$val};
-                }
+        // @each $key, $breakPoint in $breakPoints {   
+        //     @media (min-width: #{$breakPoint}) {
+        //         .col-#{$key}-#{$i} {
+        //             flex: 0 0 auto;
+        //             width: #{$val};
+        //         }
+        //     }
+        // } 
+
+        @media (min-width: 768px) {
+            .col-md-#{$i} {
+                flex: 0 0 auto;
+                width: #{$val};
             }
-        } 
+        }
     }  
+
+    @each $val in $colVal {
+        $i: index($colVal, $val);
+        
+        @media (min-width: 992px) {
+            .col-lg-#{$i} {
+                flex: 0 0 auto;
+                width: #{$val};
+            }
+        }
+    }
+    
+    @each $val in $colVal {
+        $i: index($colVal, $val);
+        
+        @media (min-width: 1200px) {
+            .col-xl-#{$i} {
+                flex: 0 0 auto;
+                width: #{$val};
+            }
+        }
+    }
+
+    @each $val in $colVal {
+        $i: index($colVal, $val);
+        
+        @media (min-width: 1400px) {
+            .col-xxl-#{$i} {
+                flex: 0 0 auto;
+                width: #{$val};
+            }
+        }
+    }
+
 }
 
 @include col();

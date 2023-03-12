@@ -1,0 +1,28 @@
+#{$app}- {
+    &country {
+        &__ {
+            &item {
+                padding: 1.5rem 0;
+                position: relative;
+
+                &:last-child {
+                    padding-bottom: 0;
+                    
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: calc(100% - 5rem);
+                    height: 1px;
+                    background:var(--color-border);
+                }
+            }
+        }
+    }
+}

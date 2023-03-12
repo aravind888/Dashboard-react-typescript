@@ -1,0 +1,30 @@
+#{$app}- {
+    &input {
+        width: 100%;
+        padding: var(--input-padding);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        font-size: var(--fs-block);
+        line-height: calc(var(--fs-block) + 0.6rem);
+
+        &::placeholder {
+            color: #181819;
+            opacity: 0.42;
+        }
+        
+        &__ {
+            &wrap {
+                --input-padding: 1rem;
+            }
+            &search {
+                padding-left: calc(var(--input-padding) * 4);
+
+                &- {
+                    &icon {
+                        padding-left: calc(var(--input-padding) * 1.5); 
+                    }
+                }
+            }
+        }
+    }
+}

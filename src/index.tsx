@@ -4,13 +4,16 @@ import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import "./scss/style.scss"
+import Layout from './layout/Layout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Layout>
+      <App />
+    </Layout>
   </React.StrictMode>
 );
 
